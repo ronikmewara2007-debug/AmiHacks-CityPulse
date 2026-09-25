@@ -1,6 +1,5 @@
-# CityPulse Jaipur — Level 3 Hackathon Build
-
-CityPulse is a civic-intelligence dashboard concept for Jaipur. This Level 3 build turns the original frontend prototype into a locally runnable full-stack MVP with:
+# CityPulse Jaipur 
+CityPulse is a civic-intelligence dashboard concept for Jaipur. 
 
 - FastAPI backend
 - SQLite persistence for citizen reports
@@ -119,7 +118,6 @@ Citizen reports -------+                              |
                                                       +--> AI assistant
 ```
 
-## Level 3 features
 
 ### 1. Data fusion
 
@@ -174,35 +172,6 @@ docker run -p 8000:8000 citypulse
 
 The repository includes `render.yaml`. Create a new Web Service from the repository and use the generated configuration.
 
-## GitHub submission checklist
-
-Before pushing:
-
-- [ ] Remove any real secrets from files
-- [ ] Confirm `.env` is ignored
-- [ ] Run the project from a fresh terminal
-- [ ] Test `/docs`
-- [ ] Submit a test civic report
-- [ ] Open the analytics view
-- [ ] Test AI questions
-- [ ] Test the map
-- [ ] Take 4–6 clean screenshots
-- [ ] Add the official problem statement wording to the final submission form
-- [ ] Verify all team member names/IDs
-- [ ] Verify the repository is accessible to judges
-
-## Suggested 3-minute demo
-
-1. Start on the CityPulse dashboard.
-2. Point out the city health indicator and live weather/AQI provenance.
-3. Switch to Transport & Traffic and show the map.
-4. Open Civic Data Fusion and explain normalization.
-5. Show the Tonk Road correlation and emphasize that it is a possible link, not confirmed causation.
-6. Ask the assistant: `Where is traffic heavy?`
-7. Submit a citizen report.
-8. Open 📊 Operations and show that the report is persisted.
-9. Export the report CSV.
-10. Finish with the architecture: ingest → normalize → analyze → explain → act.
 
 ## Open-Meteo attribution
 
@@ -215,10 +184,3 @@ The AI endpoint has two modes:
 1. **Local Civic Engine (default):** no API key required. It answers grounded questions from the current CityPulse data and citizen reports.
 2. **OpenAI mode (optional):** set `OPENAI_API_KEY` and optionally `OPENAI_MODEL`. The backend sends a compact civic-data context to the model and explicitly instructs it not to invent facts or treat correlations as causation.
 
-PowerShell example:
-```powershell
-$env:OPENAI_API_KEY="YOUR_KEY_HERE"
-$env:OPENAI_MODEL="gpt-5.6-luna"
-python backend\main.py
-```
-Never commit your API key to GitHub. Use `.env.example` as a template and keep real secrets out of source control.
